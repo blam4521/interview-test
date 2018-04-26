@@ -15,7 +15,7 @@ Meteor.startup(() => {
     );
   }
 
-  Meteor.publish('merchants', function(per_page) {
+  Meteor.publish("merchants", function(per_page) {
     merchantData = Merchants.find({}, { limit: per_page });
     return merchantData
   });
