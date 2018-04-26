@@ -7,10 +7,16 @@ Meteor.startup(() => {
   // If DB is empty, add mock data
   if (Merchants.find().count() === 0) {
     // Create a new database document for each merchant.
+    
     mockMerchantData.forEach((merchantData, i) =>
       Merchants.insert({
         ...merchantData
       })
     );
   }
+
+  Meteor.publish('merchants', function(per_page) {
+    merchantData = Merchants.find({}, { limit: per_page });
+    return merchantData
+  });
 });

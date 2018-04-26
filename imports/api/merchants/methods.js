@@ -90,6 +90,23 @@ export const getMerchants = () => {
   return merchantData;
 };
 
+// export const getMerchants = () => {
+//   let merchantData;
+//   try {
+//     Meteor.publish('merchants', function() {
+//       merchantData = Merchants.find({}, { limit: 20 });
+  
+//     })
+//   } catch (error) {
+//     throw new Meteor.Error(
+//       `${__filename}:getMerchants.findOrFetchError`,
+//       `Could not find or fetch merchants`,
+//       error
+//     );
+//   }
+//   return merchantData;
+// };
+
 // Register meteor methods.
 Meteor.methods({
   "merchants.getMerchantById": getMerchantById,
